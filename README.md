@@ -37,7 +37,7 @@ $message = "Test Message!";
 Authenticates with the homeserver and returns an access token that should be used while sending messages.
 
 #### 2. `sendMessage($homeserver, $accessToken, $roomID, $message)`
-Send the message to the specified chat room.
+Sends the message to the specified chat room.
 
 ### Notes
 
