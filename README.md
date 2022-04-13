@@ -13,7 +13,7 @@ I'm using the [Element](https://app.element.io) Matrix client, but it really doe
 
 1. Create a Matrix account that'll be used to send the messages.
 2. Create or join a chat room in which you want to send messages.  
-   Note the room ID (in Element, this is visible in the URL bar when you open the chat room. Looks something like `!bAZNrHWkNobgqyTJiU:matrix.org`.)  
+   Note the room ID (in Element, this is visible in the URL bar when you open the chat room. Looks something like `!bAZNrHWkNobgqyTJiU:matrix.org`).  
    Make sure end-to-end encryption is turned *off*.
 4. Include `MatrixTexter.php` in your script, and use as below:
 
