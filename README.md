@@ -1,5 +1,5 @@
 # MatrixTexter
-`v1.0`: `2022-04-13`
+`v1.2`: `2022-04-23`
 
 ### What?
 
@@ -36,15 +36,18 @@ $message = "Test Message!";
 #### 1. `login($homeserver, $username, $password)`
 Authenticates with the homeserver and returns an access token that should be used while sending messages.
 
-#### 2. `sendMessage($homeserver, $accessToken, $roomID, $message)`
+#### 2. `logout($homeserver, $accessToken)`
+Invalidates a user access token, so that it can no longer be used to send messages.
+
+#### 3. `sendMessage($homeserver, $accessToken, $roomID, $message)`
 Sends the message to the specified chat room.
 
 ### Notes
 
-1. You can specify a PEM file for SSL requests at the top of `MatrixTexter.php`. 
+1. You can specify a PEM file for TLS requests at the top of `MatrixTexter.php`. 
 2. Access tokens do not expire (at least, not when the homesever is running [Synapse](https://github.com/matrix-org/synapse)), and should be cached. You do not need to call `login()` every time you want to send a message. 
 
 Relevant documentation: [[1]](https://spec.matrix.org/v1.2/client-server-api/), [[2]](https://www.postman.com/recaptime-dev/workspace/matrix-api-spec/documentation/13093388-4285b9b9-66c6-4180-8a8d-bffd91d40351).
 
 ------------
-Documentation updated: `2022-04-13`.
+Documentation updated: `2022-04-23`.
