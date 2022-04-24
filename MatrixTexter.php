@@ -1,11 +1,11 @@
 <?php
 //MatrixTexter
 //by @aaviator42
-//v1.0 : 2022-04-13
+//v1.2 : 2022-04-23
 //https://github.com/aaviator42/MatrixTexter
 
 namespace MatrixTexter;
-const CURL_PEM_FILE = NULL; //path to certificate file for SSL requests
+const CURL_PEM_FILE = NULL; //path to certificate file for TLS requests
 
 use Exception;
 
@@ -30,6 +30,18 @@ function login($homeserver, $username, $password){
 	} else {
 		throw new Exception("Unable to login.");
 	}
+}
+
+function logout($homeserver, $accessToken){
+	
+	$URL = $homeserver . "/_matrix/client/v3/logout";
+	$params = array(
+		"access_token" => $accessToken
+	);
+	
+	$response = sendRequest("POST", $URL, $params, NULL);
+	var_dump($response);
+	$response = json_decode($response, true);
 }
 
 function sendMessage($homeserver, $accessToken, $roomID, $message){
