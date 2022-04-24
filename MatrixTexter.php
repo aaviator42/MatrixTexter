@@ -28,7 +28,7 @@ function login($homeserver, $username, $password){
 	if(isset($response["access_token"])){
 		return $response["access_token"];
 	} else {
-		throw new Exception("Unable to login.");
+		throw new Exception("Unable to login: " . $response["errcode"] . PHP_EOL);
 	}
 }
 
@@ -40,8 +40,12 @@ function logout($homeserver, $accessToken){
 	);
 	
 	$response = sendRequest("POST", $URL, $params, NULL);
-	var_dump($response);
 	$response = json_decode($response, true);
+	if(isset($response["errcode"])){
+		throw new Exception("Unable to log out: " . $response["errcode"] . PHP_EOL);
+	} else {
+		return true;
+	}
 }
 
 function sendMessage($homeserver, $accessToken, $roomID, $message){
@@ -60,10 +64,10 @@ function sendMessage($homeserver, $accessToken, $roomID, $message){
 	$response = sendRequest("PUT", $URL, $params, $payload);
 	$response = json_decode($response, true);
 	
-	if(isset($response["event_id"])){
+	if(!isset($response["errcode"])){
 		return $response["event_id"];
 	} else {
-		throw new Exception("Unable to send message");
+		throw new Exception("Unable to send message: " . $response["errcode"] . PHP_EOL);
 	}
 }
 	
