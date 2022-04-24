@@ -17,4 +17,4 @@ $message = "Test Message!";
 \MatrixTexter\sendMessage($homeserver, $accessToken, $roomID, $message);
 
 //inavlidate access token
-\MatrixTexter\logout($homeserver, $accessToken);
+\MatrixTexter\logout($homeserver, $accessToken); 
