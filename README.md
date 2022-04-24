@@ -33,6 +33,8 @@ $message = "Test Message!";
 ```
 
 ### Functions
+If an action fails, the function will throw an exception with the error code received from the homeserver.
+
 #### 1. `login($homeserver, $username, $password)`
 Authenticates with the homeserver and returns an access token that should be used while sending messages.
 
